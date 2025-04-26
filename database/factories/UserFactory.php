@@ -24,14 +24,27 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'first_name' => 'Nour',
-            'last_name' => 'Super-admin',
-            'phone_number' => 'Super-admin',
-            'email' => 'super_nourn@gmail.com',
+            'first_name' => fake()->firstName(),
+            'last_name' => fake()->lastName(),
+            'phone_number' => fake()->numerify('+20 10# ### ####'),
+            'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
         ];
+    }
+
+    /**
+     * Configure the factory to create an admin user.
+     */
+    public function admin(): static
+    {
+        return $this->state(fn(array $attributes) => [
+            'first_name' => 'Nour',
+            'last_name' => 'Super-admin',
+            'phone_number' => '+20 100 000 0000',
+            'email' => 'super_nourn@gmail.com',
+        ]);
     }
 
     /**

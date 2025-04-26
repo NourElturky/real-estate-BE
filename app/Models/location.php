@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class location extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, HasFactory;
     protected $table = 'locations';
     protected $fillable = [
         'city',
@@ -15,8 +16,8 @@ class location extends Model
         'neighborhood',
         'lat',
         'lon',
-        'user_id',
-        'unit_id'
+        'user_id'
+        // Removed unit_id as it doesn't exist in the database table
     ];
     protected $casts = [
         'created_at' => 'datetime', // Casts to a Carbon datetime instance

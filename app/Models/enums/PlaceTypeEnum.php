@@ -5,9 +5,11 @@ namespace App\Models\enums;
 
 enum PlaceTypeEnum: string
 {
-    case Apartment = 'Gym';
-    case House = 'Club';
-    case Condo = 'university';
-    case Townhouse = 'hospital';
-    case Other = 'other';
+    case Transportation = 'Transportation';
+    case Educational = 'Educational';
+    case Medical = 'Medical';
+    case Shopping = 'Shopping';
+    case Recreational = 'Recreational';
+    case Dining = 'Dining';
+    case Services = 'Services';
 }

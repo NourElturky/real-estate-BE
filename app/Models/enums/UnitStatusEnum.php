@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Enums;
+namespace App\Models\enums;
 
 enum UnitStatusEnum: string
 {
